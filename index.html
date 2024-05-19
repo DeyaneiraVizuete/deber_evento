@@ -73,7 +73,7 @@
                 <input type="number" placeholder="Ingrese el precio de entrada " id="precio" class="form-control">
                 <br><br>
                 <label for=""><b>Capacidad: </b></label>
-                <select name="" id="Capacidad" class="form-control">
+                <select name="" id="capacidad" class="form-control">
                     <option value="Seleccione la capacidad: ">-- Seleccione la capacidad</option>
                     <option value="100">-- 1.- 100</option>
                     <option value="200">-- 2.- 200</option>
@@ -99,6 +99,7 @@
             <center>
                 <button type="reset" class="btn btn-outline-info">Limpiar</button>
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
+                <button type="reset" class="btn btn-danger">Elminar</button>
             </center>
         </div>
         <br>
@@ -114,6 +115,46 @@
             </center>
         </footer>
     <!-- Código firebase-->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {getFirestore,collection,addDoc,onSnapshot,deleteDoc,doc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAVsE8oGsLPIwwCbbYZfkGIQ33LaZoG_YI",
+          authDomain: "eventos-6718f.firebaseapp.com",
+          projectId: "eventos-6718f",
+          storageBucket: "eventos-6718f.appspot.com",
+          messagingSenderId: "876360875044",
+          appId: "1:876360875044:web:35d0f1b53b19290021acb1"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db =getFirestore(app);
+        const evenform = document.getElementById("form-even");
+        evenform.addEventListener("submit",async(e)=>{
+        e.preventDefault();
+            await addDoc(collection(db,"evento"),{
+                id: evenform.id.value,
+                nombre: evenform.nombre.value
+            });
+            evenform.reset(); 
+        });
+    
+        
+
+
+
+
+
+         // Initialize Firebase
+
+      </script>
+      
 
 </body>
 </html>
