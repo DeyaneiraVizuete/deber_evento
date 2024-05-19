@@ -13,6 +13,7 @@
         font-size: 20px;
         font-family: Arial, Helvetica, sans-serif;
     }
+    
     input{
         width: 100%;
         border-radius: 10px;
@@ -21,76 +22,76 @@
     }
 </style>
 <body>
-    <form id="form-product">
-    <div class="contenedor"> 
-        <h1 class="text-center text-white">REGISTRO EVENTO</h1>
-    </div>
-    <hr>
-    <div class="row" style="padding: 20px;">
-        <div class="col-6">
-            <label for=""><b>Id Evento: </b></label>
-            <input type="text" placeholder="Ingrese el id del evento " id="id" class="form-control">
-            <br><br>
-            <label for=""><b>Nombre Evento: </b></label>
-            <input type="text" placeholder="Ingrese el nombre de evento " id="nombre" class="form-control">
-            <br><br>
-            <label for=""><b>Fecha Evento: </b></label>
-            <input type="date" id="fecha" class="form-control">
-            <br><br>
-            <label for=""><b>Hora Evento: </b></label>
-            <input type="time" id="hora" class="form-control">
-            <br><br>
-            <label for=""><b>Descripción: </b></label>
-            <textarea name="#" id="desc" placeholder="Ingrese una descripión sobre su evento" rows="10" class="form-control"></textarea>
+    <form id="form-even">
+        <div class="con"> 
+            <h1 class="text-center text-white">REGISTRO EVENTO</h1>
         </div>
-
-        <div class="col-6">
-            <label for=""><b>Lugar Evento: </b></label>
-            <input type="text" placeholder="Ingrese el lugar del evento " id="lugar" class="form-control">
-            <br><br>
-            <label for=""><b>Organizador del evento: </b></label>
-            <input type="text" placeholder="Ingrese el nombre del organizador " id="organizador" class="form-control">
-            <br><br>
-            <label for=""><b>Precio Evento: </b></label>
-            <input type="number" placeholder="Ingrese el precio de entrada " id="precio" class="form-control">
-            <br><br>
-            <label for=""><b>Capacidad: </b></label>
-            <select name="" id="Capacidad" class="form-control">
-                <option value="Seleccione la capacidad: ">-- Seleccione la capacidad</option>
-                <option value="100">-- 1.- 100</option>
-                <option value="200">-- 2.- 200</option>
-                <option value="300">-- 3.- 300</option>
-                <option value="400">-- 4.- 400</option>
-                <option value="500">-- 5.- 500</option>
-                <option value="Mas">-- 6.- Mas</option>
-            </select>
-            <br><br>
-            <label for=""><b>Tipo evento: </b></label>
-            <select name="" id="tipo" class="form-control">
-                <option value="Seleccione tipo de evento: ">-- Seleccione el evento </option>
-                <option value="musica">-- 1.- Festival de musica </option>
-                <option value="artes">-- 2.- Exposición de artes</option>
-                <option value="teatro">-- 3.- Teatro</option>
-                <option value="cine">-- 4.- Festival de cine</option>
-                <option value="libro">-- 5.- Feria de libro</option>
-            </select>
-        </div>
-    </div>
-    <br>
-    <div class="text-center">
-        <button type="submit" class="btn btn-info btn-lg btn-full-width"><a href='/' style='text-decoration: none; color: white;'>Limpiar</a></button>
-        <button type="submit" class="btn btn-success btn-lg btn-full-width">Guardar</button>
-    </div>
-    <br>
-    <div>
         <hr>
-    </div>
-    <br>
-</form>
-    <footer>
-        <br><br><br>
-        <h3>Desarrollado por Deyaneira Vizuete@</h3>
-    </footer>
+        <div class="row" style="padding: 20px;">
+            <div class="col-6">
+                <label for=""><b>Id Evento: </b></label>
+                <input type="text" placeholder="Ingrese el id del evento " id="id" class="form-control">
+                <br><br>
+                <label for=""><b>Nombre Evento: </b></label>
+                <input type="text" placeholder="Ingrese el nombre de evento " id="nombre" class="form-control">
+                <br><br>
+                <label for=""><b>Fecha Evento: </b></label>
+                <input type="date" id="fecha" class="form-control">
+                <br><br>
+                <label for=""><b>Hora Evento: </b></label>
+                <input type="time" id="hora" class="form-control">
+                <br><br>
+                <label for=""><b>Descripción: </b></label>
+                <textarea name="#" id="desc" placeholder="Ingrese una descripión sobre su evento" rows="10" class="form-control"></textarea>
+            </div>
+
+            <div class="col-6">
+                <label for=""><b>Lugar Evento: </b></label>
+                <input type="text" placeholder="Ingrese el lugar del evento " id="lugar" class="form-control">
+                <br><br>
+                <label for=""><b>Organizador del evento: </b></label>
+                <input type="text" placeholder="Ingrese el nombre del organizador " id="organizador" class="form-control">
+                <br><br>
+                <label for=""><b>Precio Evento: </b></label>
+                <input type="number" placeholder="Ingrese el precio de entrada " id="precio" class="form-control">
+                <br><br>
+                <label for=""><b>Capacidad: </b></label>
+                <select name="" id="Capacidad" class="form-control">
+                    <option value="Seleccione la capacidad: ">-- Seleccione la capacidad</option>
+                    <option value="100">-- 1.- 100</option>
+                    <option value="200">-- 2.- 200</option>
+                    <option value="300">-- 3.- 300</option>
+                    <option value="400">-- 4.- 400</option>
+                    <option value="500">-- 5.- 500</option>
+                    <option value="Mas">-- 6.- Mas</option>
+                </select>
+                <br><br>
+                <label for=""><b>Tipo evento: </b></label>
+                <select name="" id="tipo" class="form-control">
+                 <option value="Seleccione tipo de evento: ">-- Seleccione el evento </option>
+                    <option value="musica">-- 1.- Festival de musica </option>
+                    <option value="artes">-- 2.- Exposición de artes</option>
+                    <option value="teatro">-- 3.- Teatro</option>
+                    <option value="cine">-- 4.- Festival de cine</option>
+                    <option value="libro">-- 5.- Feria de libro</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-info btn-lg btn-full-width"><a href='/' style='text-decoration: none; color: white;'>Limpiar</a></button>
+            <button type="submit" class="btn btn-success btn-lg btn-full-width">Guardar</button>
+        </div>
+        <br>
+        <div>
+            <hr>
+        </div>
+        <br>
+    </form>
+        <footer>
+            <br><br><br>
+            <h3>Desarrollado por Deyaneira Vizuete@</h3>
+        </footer>
     <!-- Código firebase-->
 
 </body>
