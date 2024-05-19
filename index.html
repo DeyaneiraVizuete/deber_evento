@@ -142,19 +142,20 @@
         e.preventDefault();
             await addDoc(collection(db,"evento"),{
                 id: evenform.id.value,
-                nombre: evenform.nombre.value
+                nombre: evenform.nombre.value,
+                fecha: evenform.fecha.value,
+                hora: evenform.hora.value,
+                desc: evenform.desc.value,
+                lugar: evenform.lugar.value,
+                organizador: evenform.organizador.value,
+                precio: evenform.precio.value,
+                capacidad: evenform.capacidad.value,
+                tipo: evenform.tipo.value
+
             });
             evenform.reset(); 
         });
     
-        
-
-
-
-
-
-         // Initialize Firebase
-
       </script>
       
 
