@@ -13,13 +13,18 @@
         font-size: 30px;
         font-family: Arial, Helvetica, sans-serif;
     }
+    .row{
+        padding: 20px;
+        display: flex;
+        margin: 0%;
+    }
 </style>
 <body>
     <div class="con"> 
         <h1 class="text-center text-white">REGISTRO EVENTO</h1>
     </div>
     <hr>
-    <div class="row" style="padding: 20px;" display="flex;" margin="0;">
+    <div class="row">
         <div class="col-6">
             <label for=""><b>Id Evento: </b></label>
             <input type="text" placeholder="Ingrese el id del evento " id="id" class="form-control">
@@ -33,7 +38,7 @@
             <label for=""><b>Fecha Evento: </b></label>
             <input type="date" id="fecha" class="form-control">
             <br>
-            <label for="">Hora Evento:</label>
+            <label for=""><b>Hora Evento: </b></label>
             <input type="time" id="hora" class="form-control">
         </div>
 
