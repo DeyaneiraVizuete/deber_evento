@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTOS</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTOSA</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -107,7 +107,7 @@
         </div>
         <div>
             <br>
-            <input type="text" id="buscar" placeholder="Ingrese el ID a buscar">
+            <input type="text" name="buscar" id="buscar" placeholder="Ingrese el ID a buscar">
             <br>
             <button type="button"class="btn btn-outline-dark" id="btn-buscar">Buscar</button>
         </div>
@@ -167,7 +167,7 @@
            const btnBuscar = document.getElementById("btn-buscar");
 
             btnBuscar.addEventListener("click", async () => {
-            const codigo = document.getElementById("nombre").value.trim(); // Eliminar espacios en blanco al inicio y al final
+            const codigo = document.getElementById("buscar").value.trim(); // Eliminar espacios en blanco al inicio y al final
 
             // Verificar si el campo de ID está vacío
             if (!codigo) {
