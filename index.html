@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTOs</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTOss</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -102,8 +102,13 @@
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
                 <button type="button" class="btn btn-outline-danger">Elminar</button>
                 <button type="button" class="btn btn-outline-info">Modificar </button>
-                <button type="button"class="btn btn-outline-dark" id="btn-buscar">Buscar</button>
+                
             </center>
+        </div>
+        <div>
+            <input type="text" id="buscar" placeholder="Ingrese el ID a buscar">
+            <br>
+            <button type="button"class="btn btn-outline-dark" id="btn-buscar">Buscar</button>
         </div>
         <br>
         <div>
@@ -160,7 +165,7 @@
            // Función para buscar un evento
         const btnbuscar = document.getElementById("btn-buscar");
         btnbuscar.addEventListener("click", async () => {
-            const codigo = document.getElementById("id").value;
+            const codigo = document.getElementById("buscar").value;
 
             // Verificar que el código no esté vacío
             if (!codigo) {
