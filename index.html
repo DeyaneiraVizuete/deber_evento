@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTOAa</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTO</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -100,7 +100,7 @@
         <div>
             <center>
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
-                <button type="button" class="btn btn-outline-danger">Elminar</button>
+                <button type="button" class="btn btn-outline-danger" id="Borrar">Elminar</button>
                 <button type="button" class="btn btn-outline-info">Modificar </button>
                 
             </center>
@@ -186,8 +186,7 @@
             evenform.reset(); 
         });
 
-        //btn buscar
-        // Mostrar eventos en la tabla
+        //Eventos en la tabla
         const tablaevento = document.getElementById("tabla-eventos");
         onSnapshot(collection(db, "evento"), (snapshot) => {
             tablaevento.innerHTML = "";
@@ -209,8 +208,8 @@
                 `;
             });
         });
-    ///FUNCION BUSCAR
-    const   buscarID = document.getElementById("buscar-id");
+    ///buscar
+            const buscarID = document.getElementById("buscar-id");
             buscarID.addEventListener("click", () => {
             const codigo = document.getElementById("id-buscar").value;
             const tablaeven = document.getElementById("tabla-eventos");
@@ -241,6 +240,17 @@
             if (!eventobuscado) {
                 alert("No se encontró ningún evento.");
             }
+        });
+    //Boton borrar
+            const eliminar = document.getElementById("Borrar");
+            eliminar.addEventListener("click", async () => {
+            const id = document.getElementById("id").value;
+            const que = query(collection(db, "evento"), where("id", "==", id));
+            const querySnapshot = await getDocs(que);
+            querySnapshot.forEach(async (docSnap) => {
+                await deleteDoc(doc(db, "evento", docSnap.id));
+            });
+            evenform.reset(); 
         });
           
       </script>
