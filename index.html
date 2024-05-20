@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTOA</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTOAa</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -107,9 +107,9 @@
         </div>
         <div>
             <br>
-            <input type="text" name="buscar" id="buscar" placeholder="Ingrese el ID a buscar">
+            <input type="text" name="id-buscar" id="id-buscar" placeholder="Ingrese el ID a buscar">
             <br>
-            <button type="button"class="btn btn-outline-dark" id="btn-buscar">Buscar</button>
+            <button type="button"class="btn btn-outline-dark" id="buscar-id">Buscar</button>
         </div>
         <br>
         <div>
@@ -208,6 +208,39 @@
                     </tr>
                 `;
             });
+        });
+    ///FUNCION BUSCAR
+    const   buscarID = document.getElementById("buscar-id");
+            buscarID.addEventListener("click", () => {
+            const codigo = document.getElementById("id-buscar").value;
+            const tablaeven = document.getElementById("tabla-eventos");
+            const rows = tablaeven.getElementsByTagName("tr");
+            let eventobuscado = false;
+
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName("td");
+                const idEvento = cells[0].innerText;
+
+                if (idEvento === codigo) {
+                    document.getElementById("id").value = cells[0].innerText;
+                    document.getElementById("nombre").value = cells[1].innerText;
+                    document.getElementById("fecha").value = cells[2].innerText;
+                    document.getElementById("hora").value = cells[3].innerText;
+                    document.getElementById("desc").value = cells[4].innerText;
+                    document.getElementById("lugar").value = cells[5].innerText;
+                    document.getElementById("organizador").value = cells[6].innerText;
+                    document.getElementById("precio").value = cells[7].innerText;
+                    document.getElementById("capacidad").value = cells[8].innerText;
+                    document.getElementById("tipo").value = cells[9].innerText;
+
+                    eventobuscado = true;
+                    break;
+                }
+            }
+
+            if (!eventobuscado) {
+                alert("No se encontró ningún evento.");
+            }
         });
           
       </script>
