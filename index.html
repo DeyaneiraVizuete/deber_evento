@@ -102,7 +102,7 @@
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
                 <button type="button" class="btn btn-outline-danger">Elminar</button>
                 <button type="button" class="btn btn-outline-info">Modificar </button>
-                <button type="button"class="btn btn-outline-dark">Buscar</button>
+                <button type="button"class="btn btn-outline-dark" id="btn-buscar">Buscar</button>
             </center>
         </div>
         <br>
@@ -156,7 +156,34 @@
             evenform.reset(); 
         });
 
-        // modificar 
+        //btn buscar
+            const btnbuscar = document.getElementById("btn-buscar");
+            btnBuscar.addEventListener("click", () => {
+            const id = document.getElementById("id").value;
+
+            fetch('tu-endpoint-api/evento/${id}')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Evento no encontrado');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("id").value = data.id;
+                document.getElementById("nombre").value = data.nombre;
+                document.getElementById("fecha").value = data.fecha;
+                document.getElementById("hora").value = data.hora;
+                document.getElementById("desc").value = data.desc;
+                document.getElementById("lugar").value = data.lugar;
+                document.getElementById("organizador").value = data.organizador;
+                document.getElementById("precio").value = data.precio;
+                document.getElementById("capacidad").value = data.capacidad;
+                document.getElementById("tipo").value = data.tipo;
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+        });
 
     
       </script>
