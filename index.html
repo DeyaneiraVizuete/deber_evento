@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTOSS</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTO</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -166,7 +166,7 @@
            // Función para buscar un evento
            const btnbuscar = document.getElementById("btn-buscar");
             btnbuscar.addEventListener("click", async () => {
-            const codigo = document.getElementById("id").value;
+            const codigo = document.getElementById("buscar").value;
 
             if (!codigo) {
                 alert("Por favor, ingresa el ID del evento.");
