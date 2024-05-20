@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTO x</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTO </h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -159,9 +159,9 @@
         //btn buscar
             const btnbuscar = document.getElementById("btn-buscar");
             btnbuscar.addEventListener("click", () => {
-            const id = document.getElementById("id").value;
+            const codigo = document.getElementById("id").value;
 
-            fetch('tu-endpoint-api/evento/${id}')
+            fetch('tu-endpoint-api/evento/${codigo}')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Evento no encontrado');
