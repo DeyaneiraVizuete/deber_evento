@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTOaa</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTO</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -101,7 +101,7 @@
             <center>
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
                 <button type="button" class="btn btn-outline-danger" id="Borrar">Elminar</button>
-                <button type="button" class="btn btn-outline-info">Modificar </button>
+                <button type="button" class="btn btn-outline-info" id="Modifica">Modificar </button>
                 
             </center>
         </div>
@@ -252,6 +252,30 @@
             });
             evenform.reset(); 
         });
+            //modificar
+            const modificar = document.getElementById("Modifica");
+                    modificar.addEventListener("click", async () => {
+                        const id = document.getElementById("id").value;
+                        const que = query(collection(db, "evento"), where("id", "==", id));
+                        const querySnapshot = await getDocs(que);
+                        querySnapshot.forEach(async (docSnap) => {
+                            const docRef = doc(db, "evento", docSnap.id);
+                            await updateDoc(docRef, {
+                                id: document.getElementById("id").value,
+                                nombre: document.getElementById("nombre").value,
+                                fecha: document.getElementById("fecha").value,
+                                hora: document.getElementById("hora").value,
+                                desc: document.getElementById("desc").value,
+                                lugar: document.getElementById("lugar").value,
+                                organizador: document.getElementById("organizador").value,
+                                precio: document.getElementById("precio").value,
+                                capacidad: document.getElementById("capacidad").value,
+                                tipo: document.getElementById("tipo").value
+                            });
+                            evenform.reset(); 
+                     });
+                    });
+
           
       </script>
       
