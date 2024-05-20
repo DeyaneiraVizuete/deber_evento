@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTO</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTOSS</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -106,6 +106,7 @@
             </center>
         </div>
         <div>
+            <br>
             <input type="text" id="buscar" placeholder="Ingrese el ID a buscar">
             <br>
             <button type="button"class="btn btn-outline-dark" id="btn-buscar">Buscar</button>
@@ -163,32 +164,30 @@
 
         //btn buscar
            // Función para buscar un evento
-        const btnbuscar = document.getElementById("btn-buscar");
-        btnbuscar.addEventListener("click", async () => {
-            const codigo = document.getElementById("buscar").value;
+           const btnbuscar = document.getElementById("btn-buscar");
+            btnbuscar.addEventListener("click", async () => {
+            const codigo = document.getElementById("id").value;
 
-            // Verificar que el código no esté vacío
             if (!codigo) {
-                alert("Por favor, ingrese el ID del evento.");
+                alert("Por favor, ingresa el ID del evento.");
                 return;
             }
 
-            // Buscar el documento en Firestore
             const docRef = doc(db, "evento", codigo);
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                document.getElementById("id").value = data.id;
-                document.getElementById("nombre").value = data.nombre;
-                document.getElementById("fecha").value = data.fecha;
-                document.getElementById("hora").value = data.hora;
-                document.getElementById("desc").value = data.desc;
-                document.getElementById("lugar").value = data.lugar;
-                document.getElementById("organizador").value = data.organizador;
-                document.getElementById("precio").value = data.precio;
-                document.getElementById("capacidad").value = data.capacidad;
-                document.getElementById("tipo").value = data.tipo;
+                // Aquí llenamos los campos del formulario con los datos del evento
+                document.getElementById("nombre").value = data.nombre || "";
+                document.getElementById("fecha").value = data.fecha || "";
+                document.getElementById("hora").value = data.hora || "";
+                document.getElementById("desc").value = data.desc || "";
+                document.getElementById("lugar").value = data.lugar || "";
+                document.getElementById("organizador").value = data.organizador || "";
+                document.getElementById("precio").value = data.precio || "";
+                document.getElementById("capacidad").value = data.capacidad || "";
+                document.getElementById("tipo").value = data.tipo || "";
             } else {
                 alert("Evento no encontrado");
             }
