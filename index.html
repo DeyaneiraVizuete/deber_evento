@@ -43,7 +43,7 @@
 <body>
     <form id="form-even">
         <div class="con"> 
-            <h1 class="text-center text-white">REGISTRO EVENTO</h1>
+            <h1 class="text-center text-white">REGISTRO EVENTOsS</h1>
         </div>
         <hr>
         <div class="row" style="padding: 20px;">
@@ -164,36 +164,43 @@
 
         //btn buscar
            // Función para buscar un evento
-           const btnbuscar = document.getElementById("btn-buscar");
-            btnbuscar.addEventListener("click", async () => {
-            const codigo = document.getElementById("buscar").value;
+           const btnBuscar = document.getElementById("btn-buscar");
 
+            btnBuscar.addEventListener("click", async () => {
+            const codigo = document.getElementById("id").value.trim(); // Eliminar espacios en blanco al inicio y al final
+
+            // Verificar si el campo de ID está vacío
             if (!codigo) {
                 alert("Por favor, ingresa el ID del evento.");
                 return;
             }
 
-            const docRef = doc(db, "evento", codigo);
-            const docSnap = await getDoc(docRef);
+            try {
+                // Obtener referencia al documento del evento en Firestore
+                const docRef = doc(db, "evento", codigo);
+                const docSnap = await getDoc(docRef);
 
-            if (docSnap.exists()) {
-                const data = docSnap.data();
-                // Aquí llenamos los campos del formulario con los datos del evento
-                document.getElementById("nombre").value = data.nombre || "";
-                document.getElementById("fecha").value = data.fecha || "";
-                document.getElementById("hora").value = data.hora || "";
-                document.getElementById("desc").value = data.desc || "";
-                document.getElementById("lugar").value = data.lugar || "";
-                document.getElementById("organizador").value = data.organizador || "";
-                document.getElementById("precio").value = data.precio || "";
-                document.getElementById("capacidad").value = data.capacidad || "";
-                document.getElementById("tipo").value = data.tipo || "";
-            } else {
-                alert("Evento no encontrado");
-            }
-        });
-
-    
+                if (docSnap.exists()) {
+                    // Si el documento existe, llenar los campos del formulario con los datos del evento
+                    const data = docSnap.data();
+                    document.getElementById("nombre").value = data.nombre || "";
+                    document.getElementById("fecha").value = data.fecha || "";
+                    document.getElementById("hora").value = data.hora || "";
+                    document.getElementById("desc").value = data.desc || "";
+                    document.getElementById("lugar").value = data.lugar || "";
+                    document.getElementById("organizador").value = data.organizador || "";
+                    document.getElementById("precio").value = data.precio || "";
+                    document.getElementById("capacidad").value = data.capacidad || "";
+                    document.getElementById("tipo").value = data.tipo || "";
+                } else {
+                    alert("Evento no encontrado");
+                }
+            } catch (error) {
+                // Manejar cualquier error que ocurra durante la consulta a Firestore
+                console.error("Error al buscar el evento:", error);
+                alert("Ocurrió un error al buscar el evento. Por favor, inténtalo de nuevo.");
+                }
+            });
       </script>
       
 
