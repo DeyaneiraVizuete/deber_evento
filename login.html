@@ -17,6 +17,10 @@
     .ol{
         color: #EFA37B ;
     }
+    .di{
+        text-align: center;
+        border: 10px;
+    }
 </style>
 <body>
     <center>
@@ -24,12 +28,14 @@
             <br><br>
             <img height="150px" src="OIG4.jpg" alt="">
             <br><br>
-            <label for=""><b>Entrar a Registrar Eventos</b></label>
+            <label for=""><b>Entrar a Registrar Evento</b></label>
             <br><br>
-            <label for="nombre" nombre: ></label>
-            <input type="email" class="form-control mb-3" placeholder="Ingrese email" id="correo">
-            <label for="contraseña" Contraseña></label>
-            <input type="password" class="form-control mn-3" placeholder="Contraseña" id="contra">
+            <div class="di">
+                <label for="nombre" nombre: ></label>
+                <input type="email" class="form-control mb-3" placeholder="Ingrese email" id="correo">
+                <label for="contraseña" Contraseña></label>
+                <input type="password" class="form-control mn-3" placeholder="Contraseña" id="contra">
+            </div>
             <br><br>
             <button type="button" class="btn btn-primary btn-outline-danger" id="acceder"> Acceder </button>
             <button type="button" id="registro" class="btn btn-outline-success">Registrar</button>
@@ -37,6 +43,12 @@
             <label for="" class="ol">¿Olvidó su contraseña?</label>
             <br><br>
             <button type="button" class="btn btn-secondary btn-outline-light" id="google"> Continuar con Google </button>
+            <br><br>
+            <button type="button" class="btn btn-secondary btn-outline-light" id="face"> Continuar con Facebook </button>
+            <br><br>
+            <button type="button" class="btn btn-secondary btn-outline-light" id="micros"> Continuar con Microsoft </button>
+            <br><br>
+            <button type="button" class="btn btn-secondary btn-outline-light" id="apple"> Continuar con Apple </button>
         </form>
     </center>
     <script type="module">
