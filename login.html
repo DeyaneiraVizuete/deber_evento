@@ -24,26 +24,107 @@
             <br><br>
             <img height="150px" src="OIG4.jpg" alt="">
             <br><br>
-            <label for=""><b>Entrar a Registrar Evento</b></label>
+            <label for=""><b>Entrar a Registrar Eventos</b></label>
             <br><br>
             <label for="nombre" nombre: ></label>
-            <input class="form-control mb-3" placeholder="Nombre de usuario" id="usu">
+            <input type="email" class="form-control mb-3" placeholder="Ingrese email" id="correo">
             <label for="contraseña" Contraseña></label>
             <input type="password" class="form-control mn-3" placeholder="Contraseña" id="contra">
             <br><br>
-            <button type="button" class="btn btn-primary btn-outline-danger"> Acceder </button>
+            <button type="button" class="btn btn-primary btn-outline-danger" id="acceder"> Acceder </button>
+            <br><br>
+            <button type="button" id="registro" class="btn btn-outline-success">Registrar</button>
             <br><br>
             <label for="" class="ol">¿Olvidó su contraseña?</label>
             <br><br>
-            <button type="button" class="btn btn-secondary btn-outline-light"> Continuar con Google </button>
-            <br><br>
-            <button type="button" class="btn btn-secondary btn-outline-light"> Continuar con Facebook </button>
-            <br><br>
-            <button type="button" class="btn btn-secondary btn-outline-light"> Continuar con Microsoft </button>
-            <br><br>
-            <button type="button" class="btn btn-secondary btn-outline-light"> Continuar con Apple </button>
+            <button type="button" class="btn btn-secondary btn-outline-light" id="google"> Continuar con Google </button>
         </form>
     </center>
-    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyAVsE8oGsLPIwwCbbYZfkGIQ33LaZoG_YI",
+        authDomain: "eventos-6718f.firebaseapp.com",
+        projectId: "eventos-6718f",
+        storageBucket: "eventos-6718f.appspot.com",
+        messagingSenderId: "876360875044",
+        appId: "1:876360875044:web:35d0f1b53b19290021acb1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Initialize Google Auth provider
+        const provider = new GoogleAuthProvider();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const inicio = document.getElementById('inicio');
+            const correo = document.getElementById('correo');
+            const contrasenia = document.getElementById('contra');
+            const acceder = document.getElementById('acceder');
+            const registro = document.getElementById('registro');
+            const google = document.getElementById('google');
+
+            
+
+            // Iniciar sesion email
+            acceder.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = correo.value;
+                const password = contrasenia.value;
+
+                signInWithEmailAndPassword(auth, email , password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        console.log('Usuario ingresado:', user);
+                        // Redirigir a index.html
+                        window.location.href = 'index.html';
+                    })
+                    .catch((error) => {
+                        console.error('Error durante la autenticación:', error);
+                        alert(`Error: ${error.message}`);
+                    });
+            });
+
+            // Registrar sesion email
+            registro.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = correo.value;
+                const password = contrasenia.value;
+
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        console.log('Usuario registrado:', user);
+                        
+                    })
+                    .catch((error) => {
+                        console.error('Error durante el registro:', error);
+                        alert(`Error: ${error.message}`);
+                    });
+            });
+
+            // Google login functionality
+            google.addEventListener('click', (e) => {
+                e.preventDefault();
+                signInWithPopup(auth, provider)
+                    .then((result) => {
+                        const user = result.user;
+                        console.log('Usuario ingresado con Google:', user);
+                        // Redirigir a index.html
+                        window.location.href = 'index.html';
+                    })
+                    .catch((error) => {
+                        console.error('Error durante la autenticación con Google:', error);
+                        alert(`Error: ${error.message}`);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
