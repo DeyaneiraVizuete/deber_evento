@@ -89,8 +89,8 @@
                     .then((userCredential) => {
                         const user = userCredential.user;
                         console.log('Usuario ingresado:', user);
-                        // Redirigir a index.html
-                        window.location.href = 'index.html';
+                        // Redirigir a i.html
+                        window.location.href = 'i.html';
                     })
                     .catch((error) => {
                         console.error('Error durante la autenticación:', error);
@@ -123,8 +123,8 @@
                     .then((result) => {
                         const user = result.user;
                         console.log('Usuario ingresado con Google:', user);
-                        // Redirigir a index.html
-                        window.location.href = 'index.html';
+                        // Redirigir a i.html
+                        window.location.href = 'i.html';
                     })
                     .catch((error) => {
                         console.error('Error durante la autenticación con Google:', error);
